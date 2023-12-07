@@ -1,9 +1,9 @@
 ---
-name: 'User Story: <Title>'
+name: User Story template
 about: A template for making users stories
-title: ''
+title: 'User Story: <Title>'
 labels: ''
-assignees: ''
+assignees: Inotila
 
 ---
 
