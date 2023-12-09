@@ -40,5 +40,12 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
   // test log to see if it numberOfPlayers Updated
   console.log(`Number of players selected: ${numberOfPlayers}`);
 
-});
 
+//   turn of the display of the form once the number of players selected has been submitted
+  if ( numberOfPlayers > 0) {
+    document.getElementById("numbers-selected-row").style.display = "none";
+    console.log("its working");
+}
+  return numberOfPlayers
+
+});
