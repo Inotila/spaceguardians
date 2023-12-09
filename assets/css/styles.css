@@ -1,0 +1,9 @@
+/* basic styling of elements */
+
+body {
+    font-family: "Fjalla One", sans-serif;
+    background-color: #05102f !important;
+    color: antiquewhite !important;
+    min-height: 100vh;
+}
+
