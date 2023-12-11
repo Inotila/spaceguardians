@@ -36,6 +36,8 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
     let name = document.getElementById("name").value;
      let word = document.getElementById("word").value;
     addPlayer(name, word);
+    const playerInfoForm = document.getElementById("player-info-form");
+    playerInfoForm.reset();
 });
 
 
