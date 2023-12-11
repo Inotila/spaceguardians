@@ -7,3 +7,39 @@ body {
     min-height: 100vh;
 }
 
+a{
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
+/* ----- home page ------  */
+
+.home-page-btn{
+    font-size: 100%;
+    width: 5rem;
+    height: auto;
+    border-radius: 10px;
+    background-color: #d7eee9;
+}
+
+.home-page-btn:hover{
+    background-color: #9be0d1;
+}
+
+/* ----- game page ------  */
+
+.game-play-btn{
+    font-size: 100%;
+    width: 5rem;
+    height: auto;
+    border-radius: 15px;
+    background-color: #d3e7ae;
+}
+
+.game-play-btn:hover{
+    background-color: #9bc64c;
+}
+
+
+/* ----- rules page ------  */
+
