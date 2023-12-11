@@ -30,14 +30,23 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
 
 //Store player name, chosen word & _ _ _ dashed lines according to lenght of word in array
  let players = [];
+ let addedPlayers = 0;
 
  document.getElementById("player-info-form").addEventListener("submit", function(event) {
      event.preventDefault();
-    let name = document.getElementById("name").value;
+  if (addedPlayers < numberOfPlayers){   
+     let name = document.getElementById("name").value;
      let word = document.getElementById("word").value;
-    addPlayer(name, word);
-    const playerInfoForm = document.getElementById("player-info-form");
-    playerInfoForm.reset();
+     addPlayer(name, word);
+     addedPlayers++;
+
+     const playerInfoForm = document.getElementById("player-info-form");
+     playerInfoForm.reset();
+
+   if (addedPlayers >= numberOfPlayers){
+    document.getElementById("nameRow").style.display = "none";
+   }
+  }
 });
 
 
