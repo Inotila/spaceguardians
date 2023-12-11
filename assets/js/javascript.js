@@ -1,5 +1,6 @@
 // Default value of numbers of players
 let numberOfPlayers = 0; 
+let currentPlayer = 1
 
 // Access the form and select element
 const numberOfPlayersForm = document.getElementById('playerForm');
@@ -20,6 +21,8 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
   if ( numberOfPlayers > 0) {
     document.getElementById("numbers-selected-row").style.display = "none";
     document.getElementById("nameRow").style.display = "block";
+    // access the element of playerPromt 
+    document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
 
     console.log("its working");
 }
@@ -42,6 +45,15 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
 
      const playerInfoForm = document.getElementById("player-info-form");
      playerInfoForm.reset();
+
+    //  update the currentplayer to the next one once the form is sumbitted
+     currentPlayer++;
+
+     if (currentPlayer > numberOfPlayers) {
+         currentPlayer = 1; // Reset back to Player 1 after reaching the last player
+     }
+
+     document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
 
    if (addedPlayers >= numberOfPlayers){
     document.getElementById("nameRow").style.display = "none";
