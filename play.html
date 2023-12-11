@@ -18,7 +18,9 @@
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <a href=" ./index.html"><h1>Hangman</h1></a>
+                <a href=" ./index.html">
+                    <h1>Hangman</h1>
+                </a>
             </div>
         </div>
 
@@ -33,24 +35,36 @@
                 <form id="playerForm">
                     <label for="playerCount">Select Number of Players:</label>
                     <select id="playerCount">
-                      <option value="2">2 Players</option>
-                      <option value="3">3 Players</option>
-                      <option value="4">4 Players</option>
-                      <option value="4">5 Players</option>
-                      <option value="4">6 Players</option>
-                      <!-- Add more options as needed -->
+                        <option value="2">2 Players</option>
+                        <option value="3">3 Players</option>
+                        <option value="4">4 Players</option>
+                        <option value="4">5 Players</option>
+                        <option value="4">6 Players</option>
+                        <!-- Add more options as needed -->
                     </select>
                     <button type="submit">Submit</button>
-                  </form>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <!-- form to let player input name and choose word -->
+                <form id="player-info-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <label for="Word">Word:</label>
+                    <input type="text" id="word" word="word">
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
 
         <!-- each player enters their name and their secert code. disable display of numbers forms-->
-<!-- to make life easy, I would just make players enter a secert word and have their names be player 1 etc for the first round of development -->
+        <!-- to make life easy, I would just make players enter a secert word and have their names be player 1 etc for the first round of development -->
 
-<!-- game starts. disabple name and secert word display -->
+        <!-- game starts. disabple name and secert word display -->
 
-<!-- winner overlay -->
+        <!-- winner overlay -->
 
 
     </div>
