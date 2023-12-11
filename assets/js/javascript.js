@@ -22,7 +22,7 @@ function addPlayer(name, word){
     console.log(players);
 };
 
-let testWord = "thewordw"; //sampe word
+let testWord = "thewordw"; //sample word
 let matchingLetters = "";
 let incorrectLetters ="";
 
@@ -30,8 +30,8 @@ let displayWord = testWord.replaceAll(/\w/g, "_ ");
 
 document.getElementById("display_word").innerHTML = displayWord;
 
-function geuss(){
-    let letter = document.getElementById("geuss").value;
+function guess(){
+    let letter = document.getElementById("guess").value;
 
     console.log(letter);
 
@@ -47,6 +47,6 @@ function geuss(){
         console.log(false);
         console.log(incorrectLetters);
     }
-    document.getElementById("geuss").value = "";
+    document.getElementById("guess").value = "";
 }
 
