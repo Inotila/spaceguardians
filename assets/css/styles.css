@@ -40,6 +40,14 @@ a{
     background-color: #9bc64c;
 }
 
+#game-play-image-div{
+    width: 25%;
+}
+
+#game-play-image-div>img{
+    width: 100%;
+}
+
 
 /* ----- rules page ------  */
 

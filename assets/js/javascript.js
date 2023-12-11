@@ -1,7 +1,18 @@
-// Default value of numbers of players
+// variables for choosing number of players
 let numberOfPlayers = 0; 
 let currentPlayer = 1
+// add player variables
+let players = [];
+let addedPlayers = 0;
+//game play variables
+let testWord = "thewordw"; //sample word
+let matchingLetters = "";
+let incorrectLetters ="";
+let guessCounter = 0;
 
+let displayWord = testWord.replaceAll(/\w/g, "_ ");
+
+document.getElementById("display_word").innerHTML = displayWord;
 // Access the form and select element
 const numberOfPlayersForm = document.getElementById('playerForm');
 const selectNumberOfPlayersElement = document.getElementById('playerCount');
@@ -32,8 +43,6 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
 
 
 //Store player name, chosen word & _ _ _ dashed lines according to lenght of word in array
- let players = [];
- let addedPlayers = 0;
 
  document.getElementById("player-info-form").addEventListener("submit", function(event) {
      event.preventDefault();
@@ -84,14 +93,6 @@ function printDashedWord(){
   console.log("The word:",players[addedPlayers  - 1].word);
 };
 
-//Logic to guess letter
-let testWord = "thewordw"; //sample word
-let matchingLetters = "";
-let incorrectLetters ="";
-
-let displayWord = testWord.replaceAll(/\w/g, "_ ");
-
-document.getElementById("display_word").innerHTML = displayWord;
 
 function guess(){
     let letter = document.getElementById("guess").value;
