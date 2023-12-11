@@ -58,3 +58,6 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
      })
     console.log(players);
 };
+
+
+
