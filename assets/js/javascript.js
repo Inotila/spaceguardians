@@ -61,6 +61,7 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
 
    }
   }
+  printDashedWord();
 });
 
 
@@ -71,6 +72,16 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
          guess: "_ ".repeat(word.length)
      })
     console.log(players);
+};
+
+function printDashedWord(){
+  let divBox = document.getElementById("abc123"); // change id
+  let textbox = document.createElement("h3");
+
+  divBox.appendChild(textbox);
+
+  textbox.innerHTML = players[addedPlayers  - 1].guess;
+  console.log("The word:",players[addedPlayers  - 1].word);
 };
 
 //Logic to guess letter
