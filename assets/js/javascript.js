@@ -57,6 +57,8 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
 
    if (addedPlayers >= numberOfPlayers){
     document.getElementById("nameRow").style.display = "none";
+    document.getElementById("guess-row").style.display = "block";
+
    }
   }
 });
