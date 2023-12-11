@@ -59,5 +59,33 @@ numberOfPlayersForm.addEventListener('submit', function(event) {
     console.log(players);
 };
 
+//Logic to guess letter
+let testWord = "thewordw"; //sample word
+let matchingLetters = "";
+let incorrectLetters ="";
+
+let displayWord = testWord.replaceAll(/\w/g, "_ ");
+
+document.getElementById("display_word").innerHTML = displayWord;
+
+function guess(){
+    let letter = document.getElementById("guess").value;
+
+    console.log(letter);
+
+    if(testWord.match(letter)){
+        matchingLetters += letter;
+        let checkIfMatch = new RegExp(`[^${matchingLetters}]`, 'g'); 
+        displayWord = testWord.replaceAll(checkIfMatch, "_ ");
+        document.getElementById("display_word").innerHTML = displayWord;
+        console.log(true);
+        console.log(matchingLetters);
+    } else {
+        incorrectLetters += letter;
+        console.log(false);
+        console.log(incorrectLetters);
+    }
+    document.getElementById("guess").value = "";
+}
 
 
