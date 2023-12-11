@@ -1,5 +1,6 @@
 let testWord = "thewordw"; //sampe word
-let list = "";
+let matchingLetters = "";
+let incorrectLetters ="";
 
 let displayWord = testWord.replaceAll(/\w/g, "_ ");
 
@@ -7,16 +8,20 @@ document.getElementById("display_word").innerHTML = displayWord;
 
 function geuss(){
     let letter = document.getElementById("geuss").value;
-    list += letter;
-    let match = new RegExp(`[^${list}]`, 'g') 
+
     console.log(letter);
 
     if(testWord.match(letter)){
-        displayWord = testWord.replaceAll(match, "_ ");
+        matchingLetters += letter;
+        let checkIfMatch = new RegExp(`[^${matchingLetters}]`, 'g'); 
+        displayWord = testWord.replaceAll(checkIfMatch, "_ ");
         document.getElementById("display_word").innerHTML = displayWord;
         console.log(true);
+        console.log(matchingLetters);
     } else {
+        incorrectLetters += letter;
         console.log(false);
+        console.log(incorrectLetters);
     }
     document.getElementById("geuss").value = "";
 }
