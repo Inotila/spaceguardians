@@ -85,6 +85,7 @@ class Player {
         this.playerScore = 0;
         this.matchingLetters= [];
         this.incorrectLetters= [];
+        this.active = true
 
   }
   guessLetter(string){
@@ -135,19 +136,31 @@ function addPlayer(name, word, playerScore) {
 // changes opponent after every guess by incrementing currentopponent, once you have played agains everyone exept yourself it switches to the next players turn
 function nextPlayer(){
   //Cant meet yourself
-  currentOpponent++
-  if(currentPlayer == currentOpponent){
-    currentOpponent++;
-  }
-  //Switch to next player
-  if(currentOpponent >= numberOfPlayers){
-    console.log("CHANGING PLAYER");
-    currentPlayer = (++currentPlayer%numberOfPlayers)
-    currentOpponent = 0;
+  let remainingPlayer = 0
+  players.forEach((element) => {
+        if(element.active){
+            remainingPlayer++
+        }
+  });
+  if (remainingPlayer < 2){
 
-    //Cant meet yourself
+    //WIN Condtion here
+
+  }
+
+  //Switch to next player
+  let a = true
+  while (a){
+    currentOpponent++
     if(currentPlayer == currentOpponent){
-      currentOpponent++;
+    }else if(currentOpponent >= numberOfPlayers){
+      console.log("CHANGING PLAYER");
+      currentPlayer = (++currentPlayer%numberOfPlayers)
+      currentOpponent = -1;
+    }else if (!players[currentOpponent].active){
+    }else if(!players[currentPlayer].active){
+    }else{
+      a = false
     }
   }
   //this increments currentOpponent after it has returned a value
@@ -175,6 +188,7 @@ function guess() {
 }
 
 function updateDisplay() {
+  console.log("U ARE "+ currentPlayer + "\tUr Opponent is: "+ currentOpponent)
   //Displays currentplayers name
   document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess " + players[currentOpponent].name + "'s word";
   //Displays secret word
