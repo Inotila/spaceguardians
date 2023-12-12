@@ -26,7 +26,9 @@
 
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <h2>Get ready to play!</h2>
+                <h2 id="game-promt" class="text-center">Draco awaits! How many brave souls dare face Draco?</h2>
+                <h2 id="game-promt-start" class="text-center"></h2>
+                <h2 id="game-promt-first-guess-entered" class="text-center"></h2>
             </div>
         </div>
         <!-- select number of player -->
@@ -49,7 +51,6 @@
         <div id="nameRow" class="row" style="display: none;">
             <div class="col d-flex justify-content-center">
                 <!-- form to let player input name and choose word -->
-                <p class="mr-3" id="playerPromt"></p>
                 <form id="player-info-form">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name">

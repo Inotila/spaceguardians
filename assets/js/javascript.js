@@ -13,8 +13,8 @@ let incorrectLetters = "";
 let guessCounter = 0;
 let playerScore = 0;
 let numberOfTurns = 0;
-
-
+let gameHasStarted = false;
+let firstGuessEntered = false;
 
 // Access the form and select element
 const numberOfPlayersForm = document.getElementById('playerForm');
@@ -30,20 +30,15 @@ numberOfPlayersForm.addEventListener('submit', function (event) {
   // test log to see if it numberOfPlayers Updated
   console.log(`Number of players selected: ${numberOfPlayers}`);
 
-
-  //   turn of the display of the form once the number of players selected has been submitted
+  // turn of the display of the form once the number of players selected has been submitted
   if (numberOfPlayers > 0) {
     document.getElementById("numbers-selected-row").style.display = "none";
     document.getElementById("nameRow").style.display = "block";
+    document.getElementById("game-promt").innerHTML = `Player ${currentPlayer} identify yourself! <br> & <br> pick a word to keep you safe from Draco`;
     // access the element of playerPromt 
-    document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
-
-    console.log("its working");
-  }
+  } 
   return numberOfPlayers
-
 });
-
 
 //Store player name, chosen word & _ _ _ dashed lines according to lenght of word in array
 
@@ -66,12 +61,18 @@ document.getElementById("player-info-form").addEventListener("submit", function 
       currentPlayer = 1; // Reset back to Player 1 after reaching the last player
     }
 
-    document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
+    document.getElementById("game-promt").innerHTML = `Player ${currentPlayer} identify yourself! <br> & <br> pick a word to keep you safe from Draco`;
+    
+    gameHasStarted = true;
+
+   
 
     //switch the displays of the detial collecting elements off
     if (addedPlayers >= numberOfPlayers) {
       document.getElementById("nameRow").style.display = "none";
       document.getElementById("guess-row").style.display = "block";
+      document.getElementById("game-promt").style.display = "none";
+      document.getElementById("game-promt-start").innerHTML = `Player ${currentPlayer} you are up`;
     }
   }
   printDashedWord();
@@ -85,24 +86,12 @@ function addPlayer(name, word, playerScore) {
     hiddenWord: "_ ".repeat(word.length),
     playerScore: playerScore
   })
-  console.log(players);
   if (playerScore === 0) {
     document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
   }
-  addPlayerDetails();
 };
 
 // logic for game play
-
-function addPlayerDetails() {
-
-  for (i = 0; i < players.length; i++) {
-    secretWord = players[i].word;
-  }
-
-  console.log(`player${i} ; secret word now: ${secretWord} ; score ${playerScore}`)
-
-}
 
 document.getElementById("display_word").innerHTML = secretWord;
 
@@ -116,10 +105,21 @@ function printDashedWord() {
   console.log("The word:", players[addedPlayers - 1].word);
 };
 
+function switchToInGamePromts(){
+  // document.getElementById("game-promt").innerHTML = `Player ${currentPlayer} idendado`;
+  console.log("rwrrffrr")
+}
+
 
 function guess() {
   // number of turns counter that will be used to trigger next players turn
   numberOfTurns++;
+ firstGuessEntered = true;
+
+ document.getElementById("game-promt-start").style.display = "none";
+ document.getElementById("game-promt-first-guess-entered").innerHTML = `player ${currentPlayer} take a chance`;
+
+
   let letter = document.getElementById("guess").value;
 
   if (secretWord.includes(letter)) {
@@ -158,5 +158,3 @@ function guess() {
   }
   document.getElementById("guess").value = "";
 }
-
-
