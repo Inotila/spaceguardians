@@ -50,20 +50,98 @@
             <h1>test</h1>
             <h1>test</h1>
 
+            <section class="players">
 
-            
+                <div class="player1">
+                    
+                    <img src="./hangman3.png" alt="template" class="stage0">
+                    <p class="Player1chosenword">-------------------------------------</p>
+                    <h3 id="display_word"></h3>
+                    <h3>Guessed letters</h3>
+    
+    
+    
+                </div>
+        
+                <div class="player2">
+    
+                    <img src="./hangman3.png" alt="template" class="stage0">
+                    <p class="Player1chosenword">-------------------------------------</p>
+                    <h3>Guessed letters</h3>
+                    <h2>Player 2</h2> 
+    
+                </div>
+        
+                <div class="player3">
+                    
+                    <img src="./hangman3.png" alt="template" class="stage0">
+                    <p class="Player1chosenword">-------------------------------------</p>
+                    <h3>Guessed letters</h3>
+                    <h2>Player 3</h2> 
+    
+                </div>
+        
+                <div class="player4">
+    
+                    <img src="./hangman3.png" alt="template" class="stage0">
+                    <p class="Player1chosenword">-------------------------------------</p>
+                    <h3>Guessed letters</h3>
+                    <h2>Player 4</h2> 
+    
+                </div>
+        
+                <div class="player5">
+                    
+                    <img src="./hangman3.png" alt="template" class="stage0">
+                    <p class="Player1chosenword">-------------------------------------</p>
+                    <h3>Guessed letters</h3>
+                    <h2>Player 5</h2>
+                    
+                </div>
+        
+                <div class="player6">
+                    
+                    <img src="./hangman3.png" alt="template" class="stage0">
+                    <p class="Player1chosenword">-------------------------------------</p>
+                    <h3>Guessed letters</h3>
+                    <h2>Player 6</h2>
+    
+                </div>
+        
+            </section>
 
 
         </section>
 
+
+        <div>
+            <!-- Other HTML content -->
+    
+            <h2 id="game-promt">game-promt</h2>
+            <div id="display_word">display-word</div>
+            <div id="incorrect-guesses">incorrect-guesses</div>
+            <img id="draco-game-img" src="" alt="Draco Image">
+    
+            <!-- Other HTML content -->
+    
+        </div>
+
+
+
+
+
+
+
         <div class="row" id="guess-row" style="display: none;">
-            <div>
-                <div id="game-play-image-div">
+            <div class="col d-flex justify-content-center">
+                <div id="game-play-image-div" class="mr-2">
                     <img id="draco-game-img" src="" alt="">
                 </div>
                 <div id="display-word-div">
                     <h3 id="display_word"></h3>
+                    <!-- you ned to press enter to geuss and this is just a prototyp -->
                     <input type="text" id="guess" onchange="guess()">
+
                     <div id="incorrect-guesses-container">
                         <p>Incorrect letter(s): <i id="incorrect-guesses"></i></p>
                     </div>
