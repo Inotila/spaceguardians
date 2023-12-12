@@ -1,16 +1,18 @@
 // variables for choosing number of players
 let numberOfPlayers = 0;
-let currentPlayer = 1
+let currentPlayer = 1;
+
 // add player variables
 let players = [];
 let addedPlayers = 0;
+
 //game play variables
-// let testWord = "thewordw"; //sample word
 let secretWord = "";
 let matchingLetters = "";
 let incorrectLetters = "";
 let guessCounter = 0;
 let playerScore = 0;
+let numberOfTurns = 0;
 
 
 
@@ -113,12 +115,8 @@ function printDashedWord() {
 
 
 function guess() {
-
+  numberOfTurns++;
   let letter = document.getElementById("guess").value;
-
-
-
-  console.log(letter);
 
   if (secretWord.includes(letter)) {
     matchingLetters += letter;
@@ -148,7 +146,7 @@ function guess() {
       incorrectLetters += letter;
     }
     document.getElementById("incorrect-guesses").innerText = incorrectLetters; // Update incorrect guesses element
-   
+
     // console.log(`secret word ${secretWord}`);
   }
   document.getElementById("guess").value = "";
