@@ -1,20 +1,11 @@
 // variables for choosing number of players
 let numberOfPlayers = 0;
 let currentPlayer = 1;
+let currentOpponent = -1;
 
 // add player variables
 let players = [];
 let addedPlayers = 0;
-
-//game play variables
-let secretWord = "";
-let matchingLetters = "";
-let incorrectLetters = "";
-let guessCounter = 0;
-let playerScore = 0;
-let numberOfTurns = 0;
-
-
 
 // Access the form and select element
 const numberOfPlayersForm = document.getElementById('playerForm');
@@ -53,7 +44,7 @@ document.getElementById("player-info-form").addEventListener("submit", function 
     let name = document.getElementById("name").value;
     let word = document.getElementById("word").value.split(''); //spilt the word to turn it into an array
     //  console.log(`split word ${word}`)
-    addPlayer(name, word, playerScore);
+    addPlayer(name, word);
     addedPlayers++;
 
     const playerInfoForm = document.getElementById("player-info-form");
@@ -72,45 +63,79 @@ document.getElementById("player-info-form").addEventListener("submit", function 
     if (addedPlayers >= numberOfPlayers) {
       document.getElementById("nameRow").style.display = "none";
       document.getElementById("guess-row").style.display = "block";
+
+      // INIT code
+      initGuessing();
     }
   }
 });
 
+function initGuessing() {
+    nextPlayer();
+    updateDisplay();
 
-function addPlayer(name, word, playerScore) {
-  players.push({
-    name: name,
-    word: word,
-    hiddenWord: "_ ".repeat(word.length), //????????
-    playerScore: playerScore,
-    matchingLetters: [],
-    incorrectLetters: []
-  })
-  console.log(players);
-  if (playerScore === 0) {
-    document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
-  }
-  addPlayerDetails();
-};
-
-// logic for game play
-
-function addPlayerDetails() {
-
-  for (i = 0; i < players.length; i++) {
-    secretWord = players[i].word;
-  }
-
-  console.log(`player${i} ; secret word now: ${secretWord} ; score ${playerScore}`)
 
 }
 
-document.getElementById("display_word").innerHTML = secretWord;
+class Player {
+  constructor(name, word) {
+        this.name = name;
+        this.word = word;
+        this.hiddenWord =  "_ ".repeat(word.length);
+        this.playerScore = 0;
+        this.matchingLetters= [];
+        this.incorrectLetters= [];
+
+  }
+  guessLetter(string){
+    if (!this.word.includes(string)) {
+      if(this.incorrectLetters.includes(string)){
+        return true
+      }else {
+        if (this.incorrectLetters !== "") {
+          this.incorrectLetters += ` ${string}`; // Add a space between letters
+        } else {
+          this.incorrectLetters += string;
+        }
+        return false
+      }
+    }else{
+      this.matchingLetters += string;
+      let displaySecretWord = '';
+
+      for (let i = 0; i < this.word.length; i++) {
+        if (this.matchingLetters.includes(this.word[i])) {
+          // If the guessed letter matches, show the letter
+          displaySecretWord += this.word[i];
+        } else {
+          // If the guessed letter doesn't match, show "_"
+          displaySecretWord += "_ ";
+        }
+      }
+      this.hiddenWord = displaySecretWord;
+      return true
+    }
+
+  }
+  incrementScore(){
+    this.playerScore++;
+  }}
+
+
+
+function addPlayer(name, word, playerScore) {
+  players.push(new Player(name,word))
+  console.log(players);
+  document.getElementById("draco-game-img").src = `./assets/images/game-images/draco0.jpg`;
+
+}
+
+
 
 // changes opponent after every guess by incrementing currentopponent, once you have played agains everyone exept yourself it switches to the next players turn
-let currentOpponent = 0;
 function nextPlayer(){
   //Cant meet yourself
+  currentOpponent++
   if(currentPlayer == currentOpponent){
     currentOpponent++;
   }
@@ -125,93 +150,37 @@ function nextPlayer(){
       currentOpponent++;
     }
   }
-  
   //this increments currentOpponent after it has returned a value
-  return currentOpponent++
+  return currentOpponent
 }
 
 
-//coppo = currentOpponent
-let coppo = -1;
+
 function guess() {
-    //runs first time the script is started to give coppo
-    if(coppo == -1){
-      coppo = nextPlayer();
-    }
-
-    //Gets the variables for the array due to pass by value
-    playerScore = players[currentPlayer].playerScore;  
-    incorrectLetters = players[coppo].incorrectLetters
-    matchingLetters = players[coppo].matchingLetters
-    secretWord = players[coppo].word
-
-    
-    document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
-
-    
+  opponent = players[currentOpponent]
+  player = players[currentPlayer]
   let letter = document.getElementById("guess").value;
 
-  if (secretWord.includes(letter)) {
-    matchingLetters += letter;
-    let displaySecretWord = '';
-
-    for (let i = 0; i < secretWord.length; i++) {
-      if (matchingLetters.includes(secretWord[i])) {
-        // If the guessed letter matches, show the letter
-        displaySecretWord += secretWord[i];
-      } else {
-        // If the guessed letter doesn't match, show "_"
-        displaySecretWord += "_ ";
-      }
-    }
-
-    // let checkIfMatch = new RegExp(`[^${matchingLetters}]`, 'g');
-    // secretWord = secretWord.replaceAll(checkIfMatch, "_ ");
-    players[coppo].hiddenWord = displaySecretWord; 
-    console.log(true);
-    console.log(`matching letters ${matchingLetters}`);
-    console.log(`secret word ${secretWord}`);
-  } else {
-    playerScore++;
-    console.log(playerScore)
-    document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
-    if (incorrectLetters !== "") {
-      incorrectLetters += ` ${letter}`; // Add a space between letters
-    } else {
-      incorrectLetters += letter;
-    }
-    
-
-
-    if(playerScore === 11) {
+  if (!opponent.guessLetter(letter)){
+    player.incrementScore()
+    if(player.playerScore === 11) {
       document.getElementById("winner-pop-up").style.display = "inline";
       console.log("we have a loser")
     }
-    
-
   }
   document.getElementById("guess").value = "";
-
-
-  //saves the variables to the array due to pass by value
-  players[currentPlayer].playerScore = playerScore;  
-  players[coppo].incorrectLetters = incorrectLetters;
-  players[coppo].matchingLetters = matchingLetters
-
   //make sure its ready for the next guess
-  coppo = nextPlayer()
-
-
-  displayName = players[currentPlayer].name;
-
-  //Displays currentplayers name 
-  document.getElementById("game-promt").innerHTML = displayName + "'s time to guess " + players[coppo].name + "'s word";
-
-  //Displays secret word
-  document.getElementById("display_word").innerHTML = players[coppo].hiddenWord;
-
-  // Update incorrect guesses element
-  document.getElementById("incorrect-guesses").innerText = players[coppo].incorrectLetters; 
+  nextPlayer()
+  updateDisplay();
 }
 
-
+function updateDisplay() {
+  //Displays currentplayers name
+  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess " + players[currentOpponent].name + "'s word";
+  //Displays secret word
+  document.getElementById("display_word").innerHTML = players[currentOpponent].hiddenWord;
+  // Update incorrect guesses element
+  document.getElementById("incorrect-guesses").innerText = players[currentOpponent].incorrectLetters;
+  // Display the character for tne new player
+  document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${players[currentPlayer].playerScore}.jpg`;
+}
