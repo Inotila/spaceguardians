@@ -37,10 +37,11 @@ body {
     padding: 40px;
 }
 
-
-h3 {
-    color: blueviolet;
+h1 {
+    text-align: center;
 }
+
+
 
 .players {
     padding-top: 100px;
