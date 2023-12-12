@@ -74,11 +74,24 @@
                     <input type="text" id="guess" onchange="guess()">
 
                     <div id="incorrect-guesses-container">
-                        <p >Incorrect letter(s): <i id="incorrect-guesses"></i></p>
+                        <p>Incorrect letter(s): <i id="incorrect-guesses"></i></p>
                     </div>
                 </div>
             </div>
         </div>
+            <div id="winner-pop-up" style="display: none;" >
+                <div id="winner-container" class="d-flex justify-content-center align-items-center">
+                    <img src="./assets/images/game-images/draco10.jpg" alt="">
+                </div>
+                <div id="popup-text">
+                    <h1 class="mr-3">Well done some one let Draco out!</h1>
+                </div>
+                <div id="popup-buttons" class="d-flex justify-content-center align-items-center">
+                    <button class="home-page-btn" onclick="location.href='./play.html'">YES</button>
+                    <button class="home-page-btn" onclick="location.href='./index.html'">NO</button>
+                </div>
+            </div>
+
     </div>
     <script src="./assets/js/javascript.js"></script>
 </body>

@@ -58,6 +58,26 @@ a{
     font-weight: bolder;
 }
 
+#winner-pop-up {
+    background-color: rgba(231, 119, 14, 0.65);
+    width: 70%;
+    height: 30rem;
+    border-radius: 20px;
+    position: fixed;
+    z-index: 1;
+    right: 200px;
+    top: 30px;
+}
+
+#winner-container{
+    width: 50%;
+    height: auto;
+}
+
+#winner-container>img{
+    width: 50%;
+    height: auto;
+}
 
 /* ----- rules page ------  */
 

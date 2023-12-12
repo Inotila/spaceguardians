@@ -120,6 +120,7 @@ function printDashedWord() {
 function guess() {
   // number of turns counter that will be used to trigger next players turn
   numberOfTurns++;
+
   let letter = document.getElementById("guess").value;
 
   if (secretWord.includes(letter)) {
@@ -154,7 +155,10 @@ function guess() {
     document.getElementById("incorrect-guesses").innerText = incorrectLetters; // Update incorrect guesses element
 
 
-    // console.log(`secret word ${secretWord}`);
+    if(playerScore === 11) {
+      document.getElementById("winner-pop-up").style.display = "inline";
+      console.log("we have a loser")
+    }
   }
   document.getElementById("guess").value = "";
 }
