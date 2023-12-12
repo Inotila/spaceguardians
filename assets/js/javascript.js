@@ -119,37 +119,39 @@ function printDashedWord() {
 };
 
 
+
+// changes opponent after every guess by incrementing currentopponent, once you have played agains everyone exept yourself it switches to the next players turn
 let currentOpponent = 0;
 function nextPlayer(){
+  //Cant meet yourself
   if(currentPlayer == currentOpponent){
     currentOpponent++;
   }
+  //Switch to next player
   if(currentOpponent >= numberOfPlayers){
     console.log("CHANGING PLAYER");
     currentPlayer = (++currentPlayer%numberOfPlayers)
     currentOpponent = 0;
+
+    //Cant meet yourself
+    if(currentPlayer == currentOpponent){
+      currentOpponent++;
+    }
   }
-  if(currentPlayer == currentOpponent){
-    currentOpponent++;
-  }
+  
+  //this increments currentOpponent after it has returned a value
   return currentOpponent++
 }
 
-
+//coppo = currentOpponent
 let coppo = -1;
 function guess() {
+    //runs first time the script is started to give coppo
     if(coppo == -1){
       coppo = nextPlayer();
     }
 
-
-  // number of turns counter that will be used to trigger next players turn
-  //SET CURRENT PLAYER
-    //game play variables
-    console.log("You are currently:" + currentPlayer)
-    console.log("Your opponent is: "+ coppo)
-    console.log("THERE ARE: "+ numberOfPlayers)
-
+    //Gets the variables for the array due to pass by value
     playerScore = players[currentPlayer].playerScore;  
     incorrectLetters = players[coppo].incorrectLetters
     matchingLetters = players[coppo].matchingLetters
@@ -202,10 +204,13 @@ function guess() {
   }
   document.getElementById("guess").value = "";
 
+
+  //saves the variables to the array due to pass by value
   players[currentPlayer].playerScore = playerScore;  
   players[coppo].incorrectLetters = incorrectLetters;
   players[coppo].matchingLetters = matchingLetters
 
+  //make sure its ready for the next guess
   coppo = nextPlayer()
 }
 
