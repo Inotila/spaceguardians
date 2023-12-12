@@ -48,6 +48,16 @@ a{
     width: 100%;
 }
 
+#incorrect-guesses-container{
+    font-weight: bolder;
+
+}
+
+#incorrect-guesses{
+    color: rgb(223, 11, 11);
+    font-weight: bolder;
+}
+
 
 /* ----- rules page ------  */
 
