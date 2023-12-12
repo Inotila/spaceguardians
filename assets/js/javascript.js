@@ -86,6 +86,9 @@ function addPlayer(name, word, playerScore) {
     playerScore: playerScore
   })
   console.log(players);
+  if (playerScore === 0) {
+    document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
+  }
   addPlayerDetails();
 };
 
@@ -115,6 +118,7 @@ function printDashedWord() {
 
 
 function guess() {
+  // number of turns counter that will be used to trigger next players turn
   numberOfTurns++;
   let letter = document.getElementById("guess").value;
 
@@ -139,13 +143,16 @@ function guess() {
     console.log(`matching letters ${matchingLetters}`);
     console.log(`secret word ${secretWord}`);
   } else {
-    // playerScore++;
+    playerScore++;
+    console.log(playerScore)
+    document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
     if (incorrectLetters !== "") {
       incorrectLetters += ` ${letter}`; // Add a space between letters
     } else {
       incorrectLetters += letter;
     }
     document.getElementById("incorrect-guesses").innerText = incorrectLetters; // Update incorrect guesses element
+
 
     // console.log(`secret word ${secretWord}`);
   }
