@@ -74,7 +74,6 @@ document.getElementById("player-info-form").addEventListener("submit", function 
       document.getElementById("guess-row").style.display = "block";
     }
   }
-  printDashedWord();
 });
 
 
@@ -107,18 +106,6 @@ function addPlayerDetails() {
 }
 
 document.getElementById("display_word").innerHTML = secretWord;
-
-function printDashedWord() {
-  let divBox = document.getElementById("display-word-div"); // change id
-  let textbox = document.createElement("h3");
-
-  divBox.appendChild(textbox);
-
-  textbox.innerHTML = players[addedPlayers - 1].hiddenWord;
-  console.log("The word:", players[addedPlayers - 1].word);
-};
-
-
 
 // changes opponent after every guess by incrementing currentopponent, once you have played agains everyone exept yourself it switches to the next players turn
 let currentOpponent = 0;
