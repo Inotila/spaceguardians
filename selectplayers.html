@@ -1,84 +1,94 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="a really insensitive game that i think should not be a school assigmemt">
-        <meta name="author" content="Space guardians">
-        <!-- css -->
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-            integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-        <title>Hangman</title>
-    </head>
-    
-    <body>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="a really insensitive game that i think should not be a school assigmemt">
+    <meta name="author" content="Space guardians">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Hangman</title>
+</head>
+
+<body>
+
+    <main>
+
+        <section id="numbers-selected-row">
+
+            <form id="playerForm">
+                <label for="playerCount">Select Number of Players:</label>
+                <select id="playerCount">
+                    <option value="2">2 Players</option>
+                    <option value="3">3 Players</option>
+                    <option value="4">4 Players</option>
+                    <option value="5">5 Players</option>
+                    <option value="6">6 Players</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+
+        </section>
+
+        <section id="nameRow" style="display: none;">
+            <form id="player-info-form">
+                <h2>[selected player placeholder]</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <label for="Word">Word:</label>
+                <input type="text" id="word" word="word">
+                <button type="submit">done</button>
+            </form>
+
+            <h1>test</h1>
+            <h1>test</h1>
+            <h1>test</h1>
+            <h1>test</h1>
+            <h1>test</h1>
+
+
+            
+
+
+        </section>
+
+        <div class="row" id="guess-row" style="display: none;">
             <div>
-                <h2 id="game-promt">Draco awaits! How many brave souls dare face Draco?</h2>
-                <h2 id="game-promt-start"></h2>
-                <h2 id="game-promt-first-guess-entered"></h2>
-            </div>
-    
-            <div id="numbers-selected-row">
-                <div>
-                    <form id="playerForm">
-                        <label for="playerCount">Select Number of Players:</label>
-                        <select id="playerCount">
-                            <option value="2">2 Players</option>
-                            <option value="3">3 Players</option>
-                            <option value="4">4 Players</option>
-                            <option value="5">5 Players</option>
-                            <option value="6">6 Players</option>
-                            <!-- Add more options as needed -->
-                        </select>
-                        <button type="submit">Submit</button>
-                    </form>
+                <div id="game-play-image-div">
+                    <img id="draco-game-img" src="" alt="">
                 </div>
-            </div>
-    
-            <div id="nameRow" style="display: none;">
-                <div>
-                    <form id="player-info-form">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name">
-                        <label for="Word">Word:</label>
-                        <input type="text" id="word" word="word">
-                        <button type="submit">done</button>
-                    </form>
-                </div>
-            </div>
-    
-            <div class="row" id="guess-row" style="display: none;">
-                <div>
-                    <div id="game-play-image-div">
-                        <img id="draco-game-img" src="" alt="">
+                <div id="display-word-div">
+                    <h3 id="display_word"></h3>
+                    <input type="text" id="guess" onchange="guess()">
+                    <div id="incorrect-guesses-container">
+                        <p>Incorrect letter(s): <i id="incorrect-guesses"></i></p>
                     </div>
-                    <div id="display-word-div">
-                        <h3 id="display_word"></h3>
-                        <input type="text" id="guess" onchange="guess()">
-                        <div id="incorrect-guesses-container">
-                            <p>Incorrect letter(s): <i id="incorrect-guesses"></i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <div id="winner-pop-up" style="display: none;">
-                <div id="winner-container">
-                    <img src="./assets/images/game-images/draco10.jpg" alt="">
-                </div>
-                <div id="popup-text">
-                    <h1>Well done someone let Draco out!</h1>
-                </div>
-                <div id="popup-buttons">
-                    <button onclick="location.href='./play.html'">YES</button>
-                    <button onclick="location.href='./index.html'">NO</button>
                 </div>
             </div>
         </div>
-        <script src="./assets/js/javascript.js"></script>
-    </body>
-    
+
+        <div id="winner-pop-up" style="display: none;">
+            <div id="winner-container">
+                <img src="./assets/images/game-images/draco10.jpg" alt="">
+            </div>
+            <div id="popup-text">
+                <h1>Well done someone let Draco out!</h1>
+            </div>
+            <div id="popup-buttons">
+                <button onclick="location.href='./play.html'">YES</button>
+                <button onclick="location.href='./index.html'">NO</button>
+            </div>
+        </div>
+        </div>
+
+    </main>
+
+    <script src="./assets/js/javascript.js"></script>
+</body>
+
 
 </html>

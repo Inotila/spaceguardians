@@ -4,6 +4,36 @@ body {
 
 }
 
+
+#numbers-selected-row {
+    padding: 100px;
+    background-color: aqua;
+    color: blue;
+}
+
+#playerform {
+    background-color: black;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+#nameRow {
+    background-color: black;
+    padding: 20px;
+    border-radius: 20px;
+    display: flexbox;
+    flex-direction: column;
+
+}
+
+
+
+
+
+
+
+
 .players {
     padding-top: 100px;
     padding-bottom: 100px;
