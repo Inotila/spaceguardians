@@ -19,22 +19,24 @@
         <div class="row">
             <div class="col d-flex justify-content-center">
                 <a href=" ./index.html">
-                    <h1>Hangman</h1>
+                    <h1>Unleash Draco</h1>
                 </a>
             </div>
         </div>
 
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <h2>Play</h2>
+                <h2 id="game-promt" class="text-center">Draco awaits! How many brave souls dare face Draco?</h2>
+                <h2 id="game-promt-start" class="text-center"></h2>
+                <h2 id="game-promt-first-guess-entered" class="text-center"></h2>
             </div>
         </div>
         <!-- select number of player -->
         <div id="numbers-selected-row" class="row">
             <div class="col d-flex justify-content-center">
                 <form id="playerForm">
-                    <label for="playerCount">Select Number of Players:</label>
-                    <select id="playerCount">
+                    <label for="playerCount" class="mr-2">Select Number of Players:</label>
+                    <select id="playerCount" class="mr-2">
                         <option value="2">2 Players</option>
                         <option value="3">3 Players</option>
                         <option value="4">4 Players</option>
@@ -42,19 +44,19 @@
                         <option value="6">6 Players</option>
                         <!-- Add more options as needed -->
                     </select>
-                    <button type="submit">Submit</button>
+                    <button class="game-play-btn" type="submit">Submit</button>
                 </form>
             </div>
         </div>
         <div id="nameRow" class="row" style="display: none;">
             <div class="col d-flex justify-content-center">
                 <!-- form to let player input name and choose word -->
-                <p class="mr-3" id="playerPromt"></p><form id="player-info-form">
+                <form id="player-info-form">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name">
                     <label for="Word">Word:</label>
                     <input type="text" id="word" word="word">
-                    <input type="submit" value="Submit">
+                    <button type="submit" value="Submit" class="game-play-btn">done</button>
                 </form>
             </div>
         </div>
@@ -63,13 +65,33 @@
 
         <div class="row" id="guess-row" style="display: none;">
             <div class="col d-flex justify-content-center">
-                <div>
+                <div id="game-play-image-div" class="mr-2">
+                    <img id="draco-game-img" src="" alt="">
+                </div>
+                <div id="display-word-div">
                     <h3 id="display_word"></h3>
                     <!-- you ned to press enter to geuss and this is just a prototyp -->
                     <input type="text" id="guess" onchange="guess()">
+
+                    <div id="incorrect-guesses-container">
+                        <p>Incorrect letter(s): <i id="incorrect-guesses"></i></p>
+                    </div>
                 </div>
             </div>
         </div>
+            <div id="winner-pop-up" style="display: none;" >
+                <div id="winner-container" class="d-flex justify-content-center align-items-center">
+                    <img src="./assets/images/game-images/draco10.jpg" alt="">
+                </div>
+                <div id="popup-text">
+                    <h1 class="mr-3">Well done some one let Draco out!</h1>
+                </div>
+                <div id="popup-buttons" class="d-flex justify-content-center align-items-center">
+                    <button class="home-page-btn" onclick="location.href='./play.html'">YES</button>
+                    <button class="home-page-btn" onclick="location.href='./index.html'">NO</button>
+                </div>
+            </div>
+
     </div>
     <script src="./assets/js/javascript.js"></script>
 </body>

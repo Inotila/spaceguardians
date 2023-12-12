@@ -7,3 +7,85 @@ body {
     min-height: 100vh;
 }
 
+a{
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
+/* ----- home page ------  */
+
+.home-page-btn{
+    font-size: 100%;
+    width: 5rem;
+    height: auto;
+    border-radius: 10px;
+    background-color: #d7eee9;
+}
+
+.home-page-btn:hover{
+    background-color: #9be0d1;
+}
+
+.draco-hero-img-container{
+width: 50%;
+}
+
+.draco-hero-img-container>img{
+    width: 50%;
+    }
+
+/* ----- game page ------  */
+
+.game-play-btn{
+    font-size: 100%;
+    width: 5rem;
+    height: auto;
+    border-radius: 15px;
+    background-color: #d3e7ae;
+}
+
+.game-play-btn:hover{
+    background-color: #9bc64c;
+}
+
+#game-play-image-div{
+    width: 25%;
+}
+
+#game-play-image-div>img{
+    width: 100%;
+}
+
+#incorrect-guesses-container{
+    font-weight: bolder;
+
+}
+
+#incorrect-guesses{
+    color: rgb(223, 11, 11);
+    font-weight: bolder;
+}
+
+#winner-pop-up {
+    background-color: rgba(231, 119, 14, 0.65);
+    width: 70%;
+    height: 30rem;
+    border-radius: 20px;
+    position: fixed;
+    z-index: 1;
+    right: 200px;
+    top: 30px;
+}
+
+#winner-container{
+    width: 50%;
+    height: auto;
+}
+
+#winner-container>img{
+    width: 50%;
+    height: auto;
+}
+
+/* ----- rules page ------  */
+
