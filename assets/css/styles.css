@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #players {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+  }
+
+  .player {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .stickman {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stickman img {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    display: none; /* Initially hide all images */
+  }
