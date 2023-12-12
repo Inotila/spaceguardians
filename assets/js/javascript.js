@@ -70,7 +70,6 @@ document.getElementById("player-info-form").addEventListener("submit", function 
     if (addedPlayers >= numberOfPlayers) {
       document.getElementById("nameRow").style.display = "none";
       document.getElementById("guess-row").style.display = "block";
-
     }
   }
   printDashedWord();
@@ -149,9 +148,8 @@ function guess() {
       incorrectLetters += letter;
     }
     document.getElementById("incorrect-guesses").innerText = incorrectLetters; // Update incorrect guesses element
-    console.log(false);
-    console.log(`incorrect letters ${incorrectLetters}`);
-    console.log(`secret word ${secretWord}`);
+   
+    // console.log(`secret word ${secretWord}`);
   }
   document.getElementById("guess").value = "";
 }
