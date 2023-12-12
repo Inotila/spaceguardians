@@ -26,6 +26,14 @@ a{
     background-color: #9be0d1;
 }
 
+.draco-hero-img-container{
+width: 50%;
+}
+
+.draco-hero-img-container>img{
+    width: 50%;
+    }
+
 /* ----- game page ------  */
 
 .game-play-btn{
