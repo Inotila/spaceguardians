@@ -7,12 +7,13 @@ let players = [];
 let addedPlayers = 0;
 
 //game play variables
-let secretWord = "";
+let secretWord = [];
 let matchingLetters = "";
 let incorrectLetters = "";
 let guessCounter = 0;
 let playerScore = 0;
 let numberOfTurns = 0;
+let displaySecretWord = "";
 
 
 
@@ -84,28 +85,29 @@ function addPlayer(name, word, playerScore) {
     hiddenWord: "_ ".repeat(word.length), //????????
     playerScore: playerScore,
     matchingLetters: [],
-    incorrectLetters: []
+    incorrectLetters: [],
+    active: true
   })
   console.log(players);
   if (playerScore === 0) {
     document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
   }
-  addPlayerDetails();
+  //addPlayerDetails();
 };
 
 // logic for game play
 
-function addPlayerDetails() {
+//function addPlayerDetails() {
 
-  for (i = 0; i < players.length; i++) {
-    secretWord = players[i].word;
-  }
+  //for (i = 0; i < players.length; i++) {
+    //secretWord = players[i].word;
+  //}
 
-  console.log(`player${i} ; secret word now: ${secretWord} ; score ${playerScore}`)
+  //console.log(`player${i} ; secret word now: ${secretWord} ; score ${playerScore}`)
 
-}
+//}
 
-document.getElementById("display_word").innerHTML = secretWord;
+//document.getElementById("display_word").innerHTML = secretWord;
 
 // changes opponent after every guess by incrementing currentopponent, once you have played agains everyone exept yourself it switches to the next players turn
 let currentOpponent = 0;
@@ -131,6 +133,15 @@ function nextPlayer(){
 }
 
 
+//Logic to elimiminate player when guessed the word
+function playerEliminated(){
+  if (displaySecretWord == secretWord.join("")){
+    players[coppo].active = false;
+    console.log(players.length);
+  }
+};
+
+
 //coppo = currentOpponent
 let coppo = -1;
 function guess() {
@@ -149,11 +160,11 @@ function guess() {
     document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
 
     
-  let letter = document.getElementById("guess").value;
+   let letter = document.getElementById("guess").value;
 
   if (secretWord.includes(letter)) {
     matchingLetters += letter;
-    let displaySecretWord = '';
+    displaySecretWord = "";
 
     for (let i = 0; i < secretWord.length; i++) {
       if (matchingLetters.includes(secretWord[i])) {
@@ -163,7 +174,12 @@ function guess() {
         // If the guessed letter doesn't match, show "_"
         displaySecretWord += "_ ";
       }
-    }
+    };
+
+    console.log(displaySecretWord == secretWord.join(""));
+    console.log(currentOpponent);
+    console.log(players.length);
+    playerEliminated();
 
     // let checkIfMatch = new RegExp(`[^${matchingLetters}]`, 'g');
     // secretWord = secretWord.replaceAll(checkIfMatch, "_ ");
@@ -175,13 +191,12 @@ function guess() {
     playerScore++;
     console.log(playerScore)
     document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${playerScore}.jpg`;
-    if (incorrectLetters !== "") {
+    
+  if (incorrectLetters !== "") {
       incorrectLetters += ` ${letter}`; // Add a space between letters
     } else {
       incorrectLetters += letter;
-    }
-    
-
+    };
 
     if(playerScore === 11) {
       document.getElementById("winner-pop-up").style.display = "inline";
