@@ -143,6 +143,7 @@ function nextPlayer(){
   return currentOpponent++
 }
 
+
 //coppo = currentOpponent
 let coppo = -1;
 function guess() {
@@ -179,7 +180,7 @@ function guess() {
 
     // let checkIfMatch = new RegExp(`[^${matchingLetters}]`, 'g');
     // secretWord = secretWord.replaceAll(checkIfMatch, "_ ");
-    document.getElementById("display_word").innerHTML = displaySecretWord;
+    players[coppo].hiddenWord = displaySecretWord; 
     console.log(true);
     console.log(`matching letters ${matchingLetters}`);
     console.log(`secret word ${secretWord}`);
@@ -192,7 +193,7 @@ function guess() {
     } else {
       incorrectLetters += letter;
     }
-    document.getElementById("incorrect-guesses").innerText = incorrectLetters; // Update incorrect guesses element
+    
 
 
     if(playerScore === 11) {
@@ -212,6 +213,18 @@ function guess() {
 
   //make sure its ready for the next guess
   coppo = nextPlayer()
+
+
+  displayName = players[currentPlayer].name;
+
+  //Displays currentplayers name 
+  document.getElementById("game-promt").innerHTML = displayName + "'s time to guess " + players[coppo].name + "'s word";
+
+  //Displays secret word
+  document.getElementById("display_word").innerHTML = players[coppo].hiddenWord;
+
+  // Update incorrect guesses element
+  document.getElementById("incorrect-guesses").innerText = players[coppo].incorrectLetters; 
 }
 
 
