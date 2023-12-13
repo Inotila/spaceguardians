@@ -208,3 +208,11 @@ function updateDisplay() {
   // Display the character for tne new player
   document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${players[currentPlayer].playerScore}.jpg`;
 }
+
+function updatePlayerNameDisplay() {
+  const currentPlayerName = document.getElementById("name").value;
+  document.getElementById("current-player-name").innerText = currentPlayerName;
+}
+
+// Attach the updatePlayerNameDisplay function to the input event of the name field
+document.getElementById("name").addEventListener("input", updatePlayerNameDisplay);
