@@ -1,5 +1,10 @@
-header{
+header {
     text-align: center;
     background-color: gray;
     height: 60px;
+}
+
+body {
+    background-color: bisque;
+    
 }
