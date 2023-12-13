@@ -37,3 +37,37 @@ numberOfPlayersForm.addEventListener('submit', function (event) {
   return numberOfPlayers;
 
 });
+
+//Store player name, chosen word & _ _ _ dashed lines according to length of word in array
+
+document.getElementById("player-info-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  if (addedPlayers < numberOfPlayers) {
+    let name = document.getElementById("name").value;
+    let word = document.getElementById("word").value.split(''); //spilt the word to turn it into an array
+    //  console.log(`split word ${word}`)
+    addPlayer(name, word);
+    addedPlayers++;
+
+    const playerInfoForm = document.getElementById("player-info-form");
+    playerInfoForm.reset();
+
+    //  update the currentplayer to the next one once the form is sumbitted
+    currentPlayer++;
+
+    if (currentPlayer > numberOfPlayers) {
+      currentPlayer = 1; // Reset back to Player 1 after reaching the last player
+    }
+
+    // document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
+
+    //switch the displays of the detial collecting elements off
+    if (addedPlayers >= numberOfPlayers) {
+      document.getElementById("nameRow").style.display = "none";
+      document.getElementById("guess-row").style.display = "block";
+
+      // INIT code
+      initGuessing();
+    }
+  }
+});
