@@ -144,7 +144,7 @@ function nextPlayer(){
         }
   });
   if (remainingPlayer < 2){
-    //WIN Condtion here
+    //prints out win message if only one player remaining
     document.getElementById("winner-pop-up").style.display = "inline";
     return;
   }
@@ -178,11 +178,13 @@ function guess() {
   if (!opponent.guessLetter(letter)){
     player.incrementScore()
     if(player.playerScore === 11) {
-      document.getElementById("winner-pop-up").style.display = "inline";
+      player.active = false;
       console.log("we have a loser")
-    } else if (!opponent.hiddenWord.includes("_")) {
-      opponent.active = false;
     }
+  }
+  //If opponents word is guessed -> opponent becomes inactive
+  if (!opponent.hiddenWord.includes("_")) {
+    opponent.active = false;
   }
 
 
