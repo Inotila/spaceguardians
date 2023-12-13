@@ -149,6 +149,7 @@ function nextPlayer(){
     //prints out win message if only one player remaining
     document.getElementById("winning-message").innerText = `${playerName} let Draco out!`
     document.getElementById("winner-pop-up").style.display = "inline";
+    document.getElementById("winning-message").innerText = `${playerName} let Draco out!`
     return;
   }
 
