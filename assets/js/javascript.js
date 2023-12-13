@@ -138,9 +138,11 @@ function addPlayer(name, word, playerScore) {
 function nextPlayer(){
   //Cant meet yourself
   let remainingPlayer = 0
+  let playerName;
   players.forEach((element) => {
         if(element.active){
             remainingPlayer++
+            playerName = element.name;
         }
   });
   if (remainingPlayer < 2){
