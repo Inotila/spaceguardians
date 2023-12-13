@@ -173,7 +173,7 @@ function nextPlayer(){
 
 
 
-function guess() {
+async function guess() {
   opponent = players[currentOpponent]
   player = players[currentPlayer]
   let letter = document.getElementById("guess").value;
@@ -193,9 +193,16 @@ function guess() {
 
   document.getElementById("guess").value = "";
   //make sure its ready for the next guess
+  updateDisplay();
+  await sleep(1000);
   nextPlayer()
   updateDisplay();
 }
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 
 function updateDisplay() {
   console.log("U ARE "+ currentPlayer + "\tUr Opponent is: "+ currentOpponent)
