@@ -4,46 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
+   <link rel="stylesheet" href="style.css">
 </head>
-<body align="center">
-
-    <ul>
-      
-         <h1> Hangman: the game</h1>
-         <li><a href="#">Start game</a></li>
-        <li><a href="#">4-6 players</a></li>
-        <li><a href="#">Numbers of players</a></li>
- <details>
-        <summary>chose difficulty  </summary>
-        <p><li><a href="#">Easy</a></li></p>
-        <p><li><a href="#">Normal</a></li>  </p>
-        <p><li><a href="#">Hard</a></li></p>
-    </details>
-        <li><a href="#"> quit</a></li>
-    </ul>
-   
+<bodyt align="center">
+  
+      <nav>
+        <label class="logo">Hangman</label>
+        </nav>
+        <ul>
+        <li><a href="#" class="active"><h1>start game</h1></a></li> 
+        <li><a href="#"><h1>4-6 players</h1></a></li>
+        <li><a href="#"><h1>Numbers of players</h1></a></li>
+        <li><a href="#"> <h1>Easy</h1></a></li>
+        <li><a href="#"> <h1>Normal</h1></a></li>  
+        <li><a href="#"> <h1>Hard</h1></a></li>
+        <li><a href="#"> <h1>quit</h1></a></li>
+          </ul>
+   <section>
+   </section>
 </body>
-<style>
-    body{
-        font-family: Arial, sans-serif;
-    }
-    ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color:rgb(6, 241, 163);
-            overflow: hidden;
-        }
-        li a {
-            display:block;
-            color: rgb(253, 253, 253);
-            text-align: center;
-            padding: 40px 16px;
-            text-decoration: none;
-        }
-        li a:hover {
-            background-color: #000000;
-        }
-
-</style>
 </html>
+<style>
+*{
+    margin: 0;
+    padding: 0 ;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+font-family:'Times New Roman', Times, serif ;
+background:url(https://store-images.s-microsoft.com/image/apps.31378.14440169033196048.33ec04e1-f2d4-46ed-a05b-03b332738f93.8032cfe7-683a-4be1-8b4c-9da7dc14c2b3?q=90&w=480&h=270);
+
+}
+nav{
+    height: 250px;
+    width: 100%;
+}
+label.logo{
+    color: rgb(0, 0, 0);
+    font-size: 37px;
+    line-height: 90px;
+    padding: 1px;
+    font-weight:blod;
+}
+nav ul{
+    float: right;
+    margin-right: 200px;
+}
+nav ul li{
+   
+    display:inline-flexbox;
+    line-height: 200px;
+    margin: 0 ;
+}
+nav ul li a{
+    color: rgb(9, 41, 244);
+    font-size:1rem;
+    border-radius: 5px;
+}
+a.active,a:hover{
+
+color:rgb(249, 6, 6);
+transition: 0,5s;
+}
+@media(max-width:768px){
+    label.logo{
+        font: size 31px;
+        padding-left: 50px;
+
+    }
+    nav ul li a{
+        font-size: rem;
+    }
+}
+</style>
