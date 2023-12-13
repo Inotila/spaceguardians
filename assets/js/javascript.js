@@ -22,12 +22,12 @@ numberOfPlayersForm.addEventListener('submit', function (event) {
     // test log to see if it numberOfPlayers Updated
     console.log(`Number of players selected: ${numberOfPlayers}`);
 
-  location.href = "playerselect.html";
+    location.href = "playerselect.html";
 
     //   turn of the display of the form once the number of players selected has been submitted
     if (numberOfPlayers > 0) {
-        document.getElementById("numbers-selected-row").style.display = "none";
-        document.getElementById("nameRow").style.display = "block";
+        document.getElementById("player-form").style.display = "none";
+        document.getElementById("player-info-form").style.display = "block";
         // access the element of playerPromt 
         // document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
 
