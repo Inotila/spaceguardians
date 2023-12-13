@@ -117,6 +117,7 @@ class Player {
       return true
     }
 
+
   }
   incrementScore(){
     this.playerScore++;
@@ -143,9 +144,9 @@ function nextPlayer(){
         }
   });
   if (remainingPlayer < 2){
-
     //WIN Condtion here
-
+    document.getElementById("winner-pop-up").style.display = "inline";
+    return;
   }
 
   //Switch to next player
@@ -179,8 +180,12 @@ function guess() {
     if(player.playerScore === 11) {
       document.getElementById("winner-pop-up").style.display = "inline";
       console.log("we have a loser")
+    } else if (!opponent.hiddenWord.includes("_")) {
+      opponent.active = false;
     }
   }
+
+
   document.getElementById("guess").value = "";
   //make sure its ready for the next guess
   nextPlayer()
