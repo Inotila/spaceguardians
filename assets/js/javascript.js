@@ -203,3 +203,4 @@ function updatePlayerNameDisplay() {
 
 // Attach the updatePlayerNameDisplay function to the input event of the name field
 document.getElementById("name").addEventListener("input", updatePlayerNameDisplay);
+
