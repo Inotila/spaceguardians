@@ -18,10 +18,15 @@
         <li><a href="#"> <h1>Easy</h1></a></li>
         <li><a href="#"> <h1>Normal</h1></a></li>  
         <li><a href="#"> <h1>Hard</h1></a></li>
-        <li><a href="#"> <h1>quit</h1></a></li>
+        <li><a href="#" onclick="quitGame()"> <h1>quit</h1></a></li>
           </ul>
-   <section>
+   <section id="game-section">
    </section>
+   <script>
+    function quitGame(){
+        alert('Game quit!')
+    }
+   </script>
 </body>
 </html>
 <style>
