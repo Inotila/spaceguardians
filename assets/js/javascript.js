@@ -180,7 +180,7 @@ function guess() {
 
   if (!opponent.guessLetter(letter)){
     player.incrementScore()
-    if(player.playerScore === 11) {
+    if(player.playerScore === 10) {
       player.active = false;
       console.log("we have a loser")
     }
