@@ -52,6 +52,11 @@
             <div class="col d-flex justify-content-center">
                 <!-- form to let player input name and choose word -->
                 <form id="player-info-form">
+
+                    <div id="player-name-display">
+                        Current Player: <span id="current-player-name"></span>
+                    </div>
+                    
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name">
                     <label for="Word">Word:</label>
@@ -61,7 +66,7 @@
             </div>
         </div>
 
-        <!-- game starts. disabple name and secert word display -->
+        <!-- game starts. disable name and secret word display -->
 
         <div class="row" id="guess-row" style="display: none;">
             <div class="col d-flex justify-content-center">
