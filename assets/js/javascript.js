@@ -71,3 +71,10 @@ document.getElementById("player-info-form").addEventListener("submit", function 
     }
   }
 });
+
+function initGuessing() {
+  nextPlayer();
+  updateDisplay();
+
+
+}
