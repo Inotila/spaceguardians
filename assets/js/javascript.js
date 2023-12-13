@@ -61,16 +61,21 @@ document.getElementById("player-info-form").addEventListener("submit", function 
 
     // document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
 
-    //switch the displays of the detial collecting elements off
-    if (addedPlayers >= numberOfPlayers) {
-      document.getElementById("nameRow").style.display = "none";
-      document.getElementById("guess-row").style.display = "block";
-
-      // INIT code
-      initGuessing();
-    }
   }
 });
+
+document.getElementById("submit").addEventListener("submit", function (event) {
+
+//switch the displays of the detial collecting elements off
+if (addedPlayers >= numberOfPlayers) {
+  document.getElementById("nameRow").style.display = "none";
+  document.getElementById("guess-row").style.display = "block";
+
+  // INIT code
+  initGuessing();
+}
+
+})
 
 function initGuessing() {
   nextPlayer();
@@ -78,3 +83,123 @@ function initGuessing() {
 
 
 }
+
+class Player {
+  constructor(name, word) {
+        this.name = name;
+        this.word = word;
+        this.hiddenWord =  "_ ".repeat(word.length);
+        this.playerScore = 0;
+        this.matchingLetters= [];
+        this.incorrectLetters= [];
+
+  }
+  guessLetter(string){
+    if (!this.word.includes(string)) {
+      if(this.incorrectLetters.includes(string)){
+        return true
+      }else {
+        if (this.incorrectLetters !== "") {
+          this.incorrectLetters += ` ${string}`; // Add a space between letters
+        } else {
+          this.incorrectLetters += string;
+        }
+        return false
+      }
+    }else{
+      this.matchingLetters += string;
+      let displaySecretWord = '';
+
+      for (let i = 0; i < this.word.length; i++) {
+        if (this.matchingLetters.includes(this.word[i])) {
+          // If the guessed letter matches, show the letter
+          displaySecretWord += this.word[i];
+        } else {
+          // If the guessed letter doesn't match, show "_"
+          displaySecretWord += "_ ";
+        }
+      }
+      this.hiddenWord = displaySecretWord;
+      return true
+    }
+
+  }
+  incrementScore(){
+    this.playerScore++;
+  }}
+
+
+
+function addPlayer(name, word, playerScore) {
+  players.push(new Player(name,word))
+  console.log(players);
+  document.getElementById("draco-game-img").src = `./assets/images/game-images/draco0.jpg`;
+
+}
+
+
+
+// changes opponent after every guess by incrementing currentopponent, once you have played agains everyone exept yourself it switches to the next players turn
+function nextPlayer(){
+  //Cant meet yourself
+  currentOpponent++
+  if(currentPlayer == currentOpponent){
+    currentOpponent++;
+  }
+  //Switch to next player
+  if(currentOpponent >= numberOfPlayers){
+    console.log("CHANGING PLAYER");
+    currentPlayer = (++currentPlayer%numberOfPlayers)
+    currentOpponent = 0;
+
+    //Cant meet yourself
+    if(currentPlayer == currentOpponent){
+      currentOpponent++;
+    }
+  }
+  //this increments currentOpponent after it has returned a value
+  return currentOpponent
+}
+
+
+
+function guess() {
+  opponent = players[currentOpponent]
+  player = players[currentPlayer]
+  let letter = document.getElementById("guess").value;
+
+  if (!opponent.guessLetter(letter)){
+    player.incrementScore()
+    if(player.playerScore === 11) {
+      document.getElementById("winner-pop-up").style.display = "inline";
+      console.log("we have a loser")
+    }
+  }
+  document.getElementById("guess").value = "";
+  //make sure its ready for the next guess
+  nextPlayer()
+  updateDisplay();
+}
+
+function updateDisplay() {
+  //Displays currentplayers name
+  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess " + players[currentOpponent].name + "'s word";
+  //Displays secret word
+  document.getElementById("display_word").innerHTML = players[currentOpponent].hiddenWord;
+  // Update incorrect guesses element
+  document.getElementById("incorrect-guesses").innerText = players[currentOpponent].incorrectLetters;
+  // Display the character for tne new player
+  document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${players[currentPlayer].playerScore}.jpg`;
+}
+
+
+
+////////////////////////////////////////////////////
+
+function updatePlayerNameDisplay() {
+  const currentPlayerName = document.getElementById("name").value;
+  document.getElementById("current-player-name").innerText = currentPlayerName;
+}
+
+// Attach the updatePlayerNameDisplay function to the input event of the name field
+document.getElementById("name").addEventListener("input", updatePlayerNameDisplay);
