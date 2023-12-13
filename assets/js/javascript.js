@@ -30,6 +30,7 @@ numberOfPlayersForm.addEventListener('submit', function (event) {
         document.getElementById("player-info-form").style.display = "block";
         // access the element of playerPromt 
         // document.getElementById("playerPromt").innerText = `Player ${currentPlayer}`;
+        // location.href = "game.html";
 
     console.log("its working");
   }
