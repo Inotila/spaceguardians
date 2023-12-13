@@ -194,7 +194,7 @@ async function guess() {
   document.getElementById("guess").value = "";
   //make sure its ready for the next guess
   updateDisplay();
-  await sleep(1000);
+  await sleep(2000);
   nextPlayer()
   updateDisplay();
 }
