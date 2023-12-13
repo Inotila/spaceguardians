@@ -21,6 +21,7 @@ numberOfPlayersForm.addEventListener('submit', function (event) {
   // test log to see if it numberOfPlayers Updated
   console.log(`Number of players selected: ${numberOfPlayers}`);
 
+  location.href = "playerselect.html";
 
   //   turn of the display of the form once the number of players selected has been submitted
   if (numberOfPlayers > 0) {
@@ -31,6 +32,6 @@ numberOfPlayersForm.addEventListener('submit', function (event) {
 
     console.log("its working");
   }
-  return numberOfPlayers
+  return numberOfPlayers;
 
 });
