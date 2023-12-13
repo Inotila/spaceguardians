@@ -138,17 +138,14 @@ function addPlayer(name, word, playerScore) {
 function nextPlayer(){
   //Cant meet yourself
   let remainingPlayer = 0
-  let playerName;
   players.forEach((element) => {
         if(element.active){
             remainingPlayer++
-            playerName = element.name;
         }
   });
   if (remainingPlayer < 2){
     //prints out win message if only one player remaining
     document.getElementById("winner-pop-up").style.display = "inline";
-    document.getElementById("winning-message").innerText = `${playerName} let Draco out!`
     return;
   }
 
