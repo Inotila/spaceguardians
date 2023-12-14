@@ -128,7 +128,19 @@ class Player {
 function addPlayer(name, word, playerScore) {
   players.push(new Player(name,word))
   console.log(players);
+  console.log("chosen"+(players.length-1))
+  document.getElementById("chosen"+(players.length-1)).innerHTML = name
   document.getElementById("draco-game-img").src = `./assets/images/game-images/draco0.jpg`;
+  document.getElementById("chosen"+(players.length-1)+"").addEventListener("click",function (event){
+    if(currentPlayer != id){
+      for (let i = 0; i < 5; i++) {
+        document.getElementById("chosen"+i+"").setAttribute("style","color:white")
+      }
+      let name = event.currentTarget.getAttribute("id")
+      let id = name.at(name.length-1)
+      document.getElementById("chosen"+id+"").setAttribute("style","color:green")
+    }
+  })
 
 }
 
