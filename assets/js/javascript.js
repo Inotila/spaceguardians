@@ -71,8 +71,8 @@ document.getElementById("player-info-form").addEventListener("submit", function 
 });
 
 function initGuessing() {
-    nextPlayer();
-    updateDisplay();
+    nextPlayer2();
+    document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess, Choose a opponent";
 
 
 }
@@ -128,7 +128,25 @@ class Player {
 function addPlayer(name, word, playerScore) {
   players.push(new Player(name,word))
   console.log(players);
+  console.log("chosen"+(players.length-1))
+  document.getElementById("chosen"+(players.length-1)).innerHTML = name
   document.getElementById("draco-game-img").src = `./assets/images/game-images/draco0.jpg`;
+  document.getElementById("chosen"+(players.length-1)+"").addEventListener("click",function (event){
+    let name = event.currentTarget.getAttribute("id")
+    let id = name.at(name.length-1)
+    for (let i = 0; i < numberOfPlayers; i++) {
+      if (players[i].active && i !== currentPlayer) {
+        document.getElementById("chosen" + i + "").setAttribute("style", "")
+      }
+    }
+    if(currentPlayer != id){
+      if (players[id].active){
+      document.getElementById("chosen"+id+"").setAttribute("style","text-decoration: underline")
+      currentOpponent = id;
+      updateDisplay();
+    }
+    }
+  })
 
 }
 
@@ -148,7 +166,7 @@ function nextPlayer(){
   if (remainingPlayer < 2){
     //prints out win message if only one player remaining
     document.getElementById("winner-pop-up").style.display = "inline";
-    document.getElementById("winning-message").innerText = `${playerName} let Draco out!`
+    document.getElementById("winning-message").innerText = `Draco has been unleashed! Only ${playerName} survived!`
     return;
   }
 
@@ -170,6 +188,37 @@ function nextPlayer(){
   //this increments currentOpponent after it has returned a value
   return currentOpponent
 }
+function nextPlayer2(){
+  currentOpponent = -1;
+  let remainingPlayer = 0
+  let playerName;
+  players.forEach((element) => {
+    if(element.active){
+      remainingPlayer++
+      playerName = element.name;
+    }
+  });
+  if (remainingPlayer < 2){
+    //prints out win message if only one player remaining
+    document.getElementById("winner-pop-up").style.display = "inline";
+    document.getElementById("winning-message").innerText = `Draco has been unleashed! Only ${playerName} survived!`
+    return;
+  }
+  document.getElementById("chosen" + currentPlayer + "").setAttribute("style", "")
+  document.getElementById("Cchosen" + currentPlayer + "").style.display = "inline";
+  let a = true
+  while (a){
+    currentPlayer = (++currentPlayer%numberOfPlayers)
+    if(players[currentPlayer].active){
+      a = false
+    }
+  }
+  document.getElementById("chosen" + currentPlayer + "").setAttribute("style", "border: yellow solid")
+  document.getElementById("Cchosen" + currentPlayer + "").style.display = "none";
+
+}
+
+
 
 
 
@@ -178,42 +227,53 @@ async function guess() {
   player = players[currentPlayer]
   let letter = document.getElementById("guess").value;
 
+  if (letter.length != 1){
+    return
+  }
+  if(currentOpponent == -1 ){
+    return
+  }
+
   if (!opponent.guessLetter(letter)){
     player.incrementScore()
     if(player.playerScore === 10) {
       player.active = false;
       console.log("we have a loser")
+      document.getElementById("chosen"+currentPlayer+"").setAttribute("style","text-decoration: line-through")
     }
   }
   //If opponents word is guessed -> opponent becomes inactive
   if (!opponent.hiddenWord.includes("_")) {
     opponent.active = false;
+    document.getElementById("chosen"+currentOpponent+"").setAttribute("style","text-decoration: line-through")
   }
 
 
   document.getElementById("guess").value = "";
   //make sure its ready for the next guess
   updateDisplay();
-  await sleep(2000);
-  nextPlayer()
-  updateDisplay();
+  for (let i = 0; i < numberOfPlayers; i++) {
+    if (players[i].active) {
+      document.getElementById("chosen" + i + "").setAttribute("style", "")
+    }
+  }
+  nextPlayer2()
+  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess, Choose a opponent";
 }
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 
 
 function updateDisplay() {
   console.log("U ARE "+ currentPlayer + "\tUr Opponent is: "+ currentOpponent)
   //Displays currentplayers name
-  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess " + players[currentOpponent].name + "'s word";
+  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess, Choose a opponent";
   //Displays secret word
   document.getElementById("display_word").innerHTML = players[currentOpponent].hiddenWord;
   // Update incorrect guesses element
   document.getElementById("incorrect-guesses").innerText = players[currentOpponent].incorrectLetters;
   // Display the character for tne new player
   document.getElementById("draco-game-img").src = `./assets/images/game-images/draco${players[currentPlayer].playerScore}.jpg`;
+
+
 }
 
 function updatePlayerNameDisplay() {

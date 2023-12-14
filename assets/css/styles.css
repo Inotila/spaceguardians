@@ -61,13 +61,96 @@ width: 50%;
 
 }
 
+#chosen0:hover {
+    
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+#chosen1:hover {
+    
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen2:hover {
+   
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen3:hover {
+    
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen4:hover {
+    
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen5:hover {
+    
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen6:hover {
+    
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen0{
+    color: aliceblue;
+}
+#chosen1{
+    color: rgb(147, 199, 246);
+    
+}
+
+#chosen2{
+    color: rgb(92, 243, 110);
+}
+
+#chosen3{
+    color: rgb(234, 143, 255);
+}
+
+#chosen4{
+    color: rgb(232, 201, 0);
+}
+
+#chosen5{
+    color: rgb(249, 157, 145);
+}
+
+#chosen6{
+    color: rgb(240, 122, 255);
+}
+
 #incorrect-guesses{
     color: rgb(223, 11, 11);
     font-weight: bolder;
 }
 
 #winner-pop-up {
-    background-color: rgba(231, 119, 14, 0.65);
+    background-color: rgba(231, 119, 14, 0.75);
     width: 70%;
     height: 30rem;
     border-radius: 20px;
