@@ -61,6 +61,33 @@ width: 50%;
 
 }
 
+#chosen0{
+    color: aliceblue;
+}
+#chosen1{
+    color: rgb(147, 199, 246);
+}
+
+#chosen2{
+    color: rgb(92, 243, 110);
+}
+
+#chosen3{
+    color: rgb(234, 143, 255);
+}
+
+#chosen4{
+    color: rgb(232, 201, 0);
+}
+
+#chosen5{
+    color: rgb(249, 157, 145);
+}
+
+#chosen6{
+    color: rgb(240, 122, 255);
+}
+
 #incorrect-guesses{
     color: rgb(223, 11, 11);
     font-weight: bolder;
