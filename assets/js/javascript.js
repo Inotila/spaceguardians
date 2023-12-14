@@ -218,6 +218,9 @@ async function guess() {
   player = players[currentPlayer]
   let letter = document.getElementById("guess").value;
 
+  if (letter.length != 1){
+    return
+  }
   if(currentOpponent == -1 ){
     return
   }
