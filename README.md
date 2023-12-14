@@ -1,53 +1,41 @@
 # Space Guardians
 
-**Dec 9, 2023**
+**Dec 14, 2023**
 
-![logo]()
+##  About Unleash Draco
 
-
-## About by_ino_ati
-
+This is prohect is a colabortative project for a client that wants a game developed for them. the game is a multiplayer, 
+and the aim is to not unleash Draco, if you unleash Draco you are eleminated! And the winner is the last man standing
 
 ## Value
 
+It is easy to play and doesn't take a long time to play.
 
 ## Potential features (before starting)
 
-1. 
-2. 
-3. 
-4. 
-5. 
+1. Easy to use navigation
+2. Multiplayer
+3. Choose opponent
+4. Can see the status of the players
+5. An understandable UI
 6. 
 7. 
 8. 
 9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
 
 ## Actual Features (end product)
 
 ## Future Features
 
 ## Testing
+
+We did manually testing and their are no bugs to report
  
 ### User test
 
 ### Accessibility and performance test
 
 ## Wireframes and mock-ups
-
-### E-commerce business model underlying your application
-
-### SEO and marketing
-
-### Entity relationship diagram
 
 ### Wireframes
 
@@ -68,26 +56,11 @@ None
 
 ## Validator testing
 
-Html - No errors returned from the official w3c validator
-
-![an image of the validators that the app was run through]()
-
-CSS - No errors returned from the official (jigsaw) validator
-
-![an image of the validators that the app was run through]()
-
-Javascript - No errors returned from the jshint validator
-
-![an image of the validators that the app was run through]()
-
-Python - No errors returned from the Pep8 validator
-
-![an image of the validators that the app was run through]()
-
-All pages of this app were run through  the respective validators and no errors were found.
+still in prototype phase
 
 ## Deployment
 
+game has not been deployed yet.
 
 ### Local Deployment
 
@@ -102,3 +75,4 @@ All pages of this app were run through  the respective validators and no errors 
 
 ### Credits 
 
+Project done by: Philip C, Philip N, Car-Johan, Mahmoud, Tobais, Inotila
