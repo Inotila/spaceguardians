@@ -75,4 +75,4 @@ game has not been deployed yet.
 
 ### Credits 
 
-Project done by: Philip C, Philip N, Car-Johan, Mahmoud, Tobais, Inotila
+Project done by: Philip C, Philip N, Carl-Johan, Mahmoud, Tobais, Inotila
