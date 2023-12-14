@@ -132,13 +132,14 @@ function addPlayer(name, word, playerScore) {
   document.getElementById("chosen"+(players.length-1)).innerHTML = name
   document.getElementById("draco-game-img").src = `./assets/images/game-images/draco0.jpg`;
   document.getElementById("chosen"+(players.length-1)+"").addEventListener("click",function (event){
+    let name = event.currentTarget.getAttribute("id")
+    let id = name.at(name.length-1)
     if(currentPlayer != id){
       for (let i = 0; i < 5; i++) {
         document.getElementById("chosen"+i+"").setAttribute("style","color:white")
       }
-      let name = event.currentTarget.getAttribute("id")
-      let id = name.at(name.length-1)
       document.getElementById("chosen"+id+"").setAttribute("style","color:green")
+      currentOpponent = id;
     }
   })
 
@@ -182,6 +183,39 @@ function nextPlayer(){
   //this increments currentOpponent after it has returned a value
   return currentOpponent
 }
+function nextPlayer2(){
+  let remainingPlayer = 0
+  let playerName;
+  players.forEach((element) => {
+    if(element.active){
+      remainingPlayer++
+      playerName = element.name;
+    }
+  });
+  if (remainingPlayer < 2){
+    //prints out win message if only one player remaining
+    document.getElementById("winner-pop-up").style.display = "inline";
+    document.getElementById("winning-message").innerText = `Draco has been unleashed! Only ${playerName} survived!`
+    return;
+  }
+  let a = true
+  while (a){
+    currentOpponent++
+    if(currentPlayer == currentOpponent){
+    }else if(currentOpponent >= numberOfPlayers){
+      console.log("CHANGING PLAYER");
+      currentPlayer = (++currentPlayer%numberOfPlayers)
+      currentOpponent = -1;
+    }else if(!players[currentPlayer].active){
+    }else{
+      a = false
+    }
+  }
+  //this increments currentOpponent after it has returned a value
+  return currentOpponent
+}
+
+
 
 
 
