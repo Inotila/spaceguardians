@@ -61,11 +61,40 @@ width: 50%;
 
 }
 
+#chosen0:hover {
+    color: red;
+}
+
+#chosen1:hover {
+    color: red;
+}
+
+#chosen2:hover {
+    color: red;
+}
+
+#chosen3:hover {
+    color: red;
+}
+
+#chosen4:hover {
+    color: red;
+}
+
+#chosen5:hover {
+    color: red;
+}
+
+#chosen6:hover {
+    color: red;
+}
+
 #chosen0{
     color: aliceblue;
 }
 #chosen1{
     color: rgb(147, 199, 246);
+    
 }
 
 #chosen2{
