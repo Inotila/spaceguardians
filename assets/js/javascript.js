@@ -71,8 +71,8 @@ document.getElementById("player-info-form").addEventListener("submit", function 
 });
 
 function initGuessing() {
-    nextPlayer();
-    updateDisplay();
+    nextPlayer2();
+
 
 
 }
@@ -140,6 +140,7 @@ function addPlayer(name, word, playerScore) {
       }
       document.getElementById("chosen"+id+"").setAttribute("style","color:green")
       currentOpponent = id;
+      updateDisplay();
     }
   })
 
@@ -184,6 +185,7 @@ function nextPlayer(){
   return currentOpponent
 }
 function nextPlayer2(){
+  currentOpponent = -1;
   let remainingPlayer = 0
   let playerName;
   players.forEach((element) => {
@@ -200,19 +202,11 @@ function nextPlayer2(){
   }
   let a = true
   while (a){
-    currentOpponent++
-    if(currentPlayer == currentOpponent){
-    }else if(currentOpponent >= numberOfPlayers){
-      console.log("CHANGING PLAYER");
-      currentPlayer = (++currentPlayer%numberOfPlayers)
-      currentOpponent = -1;
-    }else if(!players[currentPlayer].active){
-    }else{
+    currentPlayer = (++currentPlayer%numberOfPlayers)
+    if(players[currentPlayer].active){
       a = false
     }
   }
-  //this increments currentOpponent after it has returned a value
-  return currentOpponent
 }
 
 
@@ -223,6 +217,10 @@ async function guess() {
   opponent = players[currentOpponent]
   player = players[currentPlayer]
   let letter = document.getElementById("guess").value;
+
+  if(currentOpponent == -1 ){
+    return
+  }
 
   if (!opponent.guessLetter(letter)){
     player.incrementScore()
@@ -240,20 +238,15 @@ async function guess() {
   document.getElementById("guess").value = "";
   //make sure its ready for the next guess
   updateDisplay();
-  await sleep(2000);
-  nextPlayer()
-  updateDisplay();
+  nextPlayer2()
+  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess, Choose a player";
 }
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 
 
 function updateDisplay() {
   console.log("U ARE "+ currentPlayer + "\tUr Opponent is: "+ currentOpponent)
   //Displays currentplayers name
-  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess " + players[currentOpponent].name + "'s word";
+  document.getElementById("game-promt").innerHTML = players[currentPlayer].name + "'s time to guess, Choose a player";
   //Displays secret word
   document.getElementById("display_word").innerHTML = players[currentOpponent].hiddenWord;
   // Update incorrect guesses element
