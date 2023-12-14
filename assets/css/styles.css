@@ -61,11 +61,67 @@ width: 50%;
 
 }
 
+#chosen0:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+#chosen1:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen2:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen3:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen4:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen5:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
+#chosen6:hover {
+    color: red;
+    padding: 2px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+}
+
 #chosen0{
     color: aliceblue;
 }
 #chosen1{
     color: rgb(147, 199, 246);
+    
 }
 
 #chosen2{
