@@ -41,11 +41,11 @@ body{
 font-family:'Times New Roman', Times, serif ;
 background:url(https://store-images.s-microsoft.com/image/apps.31378.14440169033196048.33ec04e1-f2d4-46ed-a05b-03b332738f93.8032cfe7-683a-4be1-8b4c-9da7dc14c2b3?q=90&w=480&h=270);
 background-repeat:no-repeat ;
-background-size:100%;
+background-size:104%;
 }
 nav{
     height: 250px;
-    width: 100%;
+    width: auto;
 }
 label.logo{
     color: rgb(0, 0, 0);
