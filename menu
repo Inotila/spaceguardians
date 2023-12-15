@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman</title>
+    <title>Draco</title>
    <link rel="stylesheet" href="style.css">
 </head>
 <bodyt align="center">
   
       <nav>
-        <label class="logo">Hangman</label>
+        <label class="logo">Draco</label>
         </nav>
         <ul>
         <li><a href="#" class="active"><h1>start game</h1></a></li> 
